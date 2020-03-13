@@ -1,15 +1,14 @@
 /* body */
 * {
     margin: 0;
-    padding: 0
+    padding: 0;
 }
-
 
 body {
     font-family: "Roboto Mono", SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
     font-family: "Work Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     background: #f4f4f4;
-
+    padding: 0;
 }
 
 img {
@@ -22,7 +21,6 @@ img {
 }
 
 
-
 .navlist,
 .navbar-fixed,
 nav.brand-logo {
@@ -30,27 +28,28 @@ nav.brand-logo {
 }
 
 a.brand-logo {
-    vertical-align: text-top;
-    position: relative;
+    height: 100%;
+    display: flex;
+    align-items: center;
 }
 
 ul.navbar {
     padding-top: 30px;
 }
 
-.dropdown-content {
+.nav-dropdown {
     background: none;
     /*  //overwrites default materialzie value of white */
 }
 
-.dropdown-content li>a,
-.dropdown-content li>span {
+.nav-dropdown li>a,
+.nav-dropdown li>span {
     background-color: white;
     /* //needed now that the whole menu has no background */
     color: black;
 }
 
-.dropdown-content li.spacer {
+.nav-dropdown li.spacer {
     min-height: 65px;
     /* //height of the nav element */
     cursor: default;
@@ -59,13 +58,17 @@ ul.navbar {
     /* //the magic */
 }
 
-nav ul a:hover {
+nav ul.nav-dropdown a:hover {
     background-color: #00bcd4;
     color: white;
 }
 
-section.content {
-    padding-bottom: 50px;
+/*content*/
+@media screen and (min-width: 1600px) {
+    section.content {
+        padding-bottom: 50px;
+        min-height: 1096px;
+    }
 }
 
 /*footer*/
@@ -75,52 +78,101 @@ section.content {
 }
 
 
-li.tab .material-icons{ 
+li.tab .material-icons {
     display: inline-flex;
     vertical-align: middle;
-    margin-right :5px;
-}
-.tabs,.tabs .indicator{
-    background-color:transparent;
+    margin-right: 5px;
 }
 
-.tabs .tab a:focus, .tabs .tab a:focus.active , .tabs .tab a.active{
-    background-color: #fff;
-     color:#00bcd4;
-}
-.tabs .tab a{
-    color:#00bcd4;
-}
-#localcamera1,#localcamera2,#new{
-    background-color: #fff;
-    min-height: 1000px;
-    margin-bottom: 50px;
+.tabs,
+.tabs .indicator {
+    background-color: transparent;
 }
 
-.title{
-    color:#00bcd4;
+.tabs .tab a:focus,
+.tabs .tab a:focus.active,
+.tabs .tab a.active {
+    background-color: #fff;
+    color: #00bcd4;
+}
+
+.tabs .tab a {
+    color: #00bcd4;
+}
+
+#localcamera1,
+#localcamera2,
+#newcamera {
+    background-color: #fff;
+    min-height: 480px;
+}
+.camera{
+    padding-bottom: 20px;
+}
+.title {
+    color: #00bcd4;
     font-weight: bold;
     padding: 20px 0px;
 }
 
-.item_title{
+.item_title {
     font-size: 1.25rem;
-    color:#014856;
+    color: #014856;
     font-weight: bold;
-    
-}
-.close{
-    text-align: right;
-    
-}
-.material-icons.close::before{
-    content:"close"; 
-  }
-  
-.material-icons.close:hover::before{
-    content:"cancel"; 
-}
-.material-icons .close:onclick{
-    
 }
 
+.item_content {
+    color: #000;
+    font-size: 1.15rem;
+    border-bottom: 1px solid #014856;
+    margin-bottom: 20px;
+}
+
+.close {
+    text-align: right;
+
+}
+
+.material-icons.close::before {
+    content: "close";
+}
+
+.material-icons.close:hover::before {
+    content: "cancel";
+}
+
+.slider_img {
+    width: 100%;
+}
+
+details:hover {
+    cursor: pointer;
+}
+
+i.add{
+font-size: 50px;
+cursor: pointer;
+color: #00bcd4;
+}
+@media only screen and (min-width: 993px){
+     /* styles for browsers larger than 993px; */
+    ul.stepper.horizontal .step.active .step-title:before, ul.stepper.horizontal .step.done .step-title:before {
+        background-color: #00bcd4;
+    }
+    ul.stepper.horizontal:before {
+        box-shadow: none;
+    }
+    ul.stepper.horizontal {
+        /* min-height: 100vh; */
+        height: min-content;
+        overflow: hidden;
+    }
+    ul.stepper.horizontal .step-content{
+        overflow-y: hidden;
+        height: min-content;
+    }
+    
+}
+.switch{
+    margin-bottom: 10rem;
+}

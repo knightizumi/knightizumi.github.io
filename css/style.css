@@ -163,16 +163,13 @@ color: #00bcd4;
         box-shadow: none;
     }
     ul.stepper.horizontal {
-        /* min-height: 100vh; */
-        height: min-content;
+        height: 100%;
         overflow: hidden;
     }
-    ul.stepper.horizontal .step-content{
-        overflow-y: hidden;
-        height: min-content;
-    }
-    
 }
 .switch{
     margin-bottom: 10rem;
+}
+ul.stepper {
+    height:100%;
 }

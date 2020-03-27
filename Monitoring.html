@@ -60,7 +60,7 @@
         <li><a href="#!">重新開機</a></li>
         <li><a href="#!">系統更新</a></li>
         <li><a href="#!">回復原廠設定</a></li>
-        <li><a href="#!">關於我們</a></li>
+        <li><a href="about.html">關於我們</a></li>
     </ul>
     <ul id="language" class="dropdown-content nav-dropdown">
         <li class="spacer"></li>
@@ -130,7 +130,7 @@
                                             <div class='form-field col s12'>
                                                 <div class="row">
                                                     <div class="input-field col s12">
-                                                        <input placeholder="名稱" id="name" type="text" class="validate">
+                                                        <input placeholder="名稱" id="name" name="name" type="text" class="validate required">
                                                         <label for="name" class="input_text">名稱</label>
                                                     </div>
                                                 </div>
@@ -153,16 +153,17 @@
                                                         <img src="images/ivs.png" width="100%">
                                                     </div>
                                                     <div class="input-field col s6">
-
-                                                        <a
-                                                            class="waves-effect waves-light btn-large effect-2">(150,124)</a>
-                                                        <a
-                                                            class="waves-effect waves-light btn-large effect-2">(150,124)</a>
-                                                        <a
-                                                            class="waves-effect waves-light btn-large effect-2">(150,124)</a>
-                                                        <a
-                                                            class="waves-effect waves-light btn-large effect-2">(150,124)</a>
-
+                                                        <div class="col s12 position-btn">
+                                                            <a class="waves-effect waves-light btn-large effect-2">(150,124)</a>
+                                                            <a class="waves-effect waves-light btn-large effect-2">(150,124)</a>
+                                                            <a class="waves-effect waves-light btn-large effect-2">(150,124)</a>    
+                                                            <a class="waves-effect waves-light btn-large effect-2">(150,124)</a>
+                                                        </div>
+                                                        
+                                                        <div class="col s12">
+                                                              <a class="waves-effect waves-light btn-large right red">clean all</a>
+                                                        </div>
+                                                      
                                                     </div>
                                                 </div>
                                             </div>
@@ -304,7 +305,7 @@
                                             <button class="waves-effect waves-dark btn red  previous-step">上一步</button>
 
                                             <button class="waves-effect waves-dark btn next-step cyan"
-                                                data-validator="validateStepOne">下一步</button>
+                                                data-validator="validateStepOne" >儲存</button>
                                         </div>
                                     </div>
                                 </li>

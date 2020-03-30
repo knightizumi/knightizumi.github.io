@@ -9,6 +9,7 @@ body {
     font-family: "Work Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     background: #f4f4f4;
     padding: 0;
+    height: 100vh;
 }
 
 img {
@@ -170,17 +171,12 @@ i.add {
     }
 
     ul.stepper.horizontal {
-        height: 750px;
+        height: 100vh;
+        /* min-height: 750px; */
         overflow: hidden;
     }
 
 }
-
-ul.stepper {
-    height: 100%;
-}
-
-
 
 
 /*step1 position button style */
@@ -256,3 +252,9 @@ div.collapsible_content{
     text-align: justify;
 }
 
+/*login*/
+.login{
+    background-color: #fff;
+    border: #000 1px solid;
+    padding :20px;
+}

@@ -267,3 +267,8 @@ span.title{
     padding: 0px 15px 10px 0px;
     border-bottom: #00bcd4 3px solid;
 }
+
+/*demo_checkbox*/
+label.demo_checkbox{
+    margin-right: 10px;
+}

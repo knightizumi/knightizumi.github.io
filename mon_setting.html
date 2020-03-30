@@ -337,11 +337,13 @@
     <script type="text/javascript" src="js/stepper.js"></script>
     <script type="text/javascript" src="js/all.js"></script>
     <script type="text/javascript">
-        $(document).ready(function () {
 
-        });
         $(document).ready(function () {
             $('.sidenav').sidenav();
+            $('.collapsible').collapsible();
+            $('.tabs').tabs();
+            $('select').formSelect();
+             $('.stepper').activateStepper();
         });
 
         $(".dropdown-trigger").dropdown({
@@ -352,16 +354,6 @@
             gutter: 0, // Spacing from edge
             belowOrigin: false, // Displays dropdown below the button
             alignment: 'left',// Displays dropdown with edge aligned to the left of button
-        });
-        $(document).ready(function () {
-            $('.collapsible').collapsible();
-        });
-
-        $(document).ready(function () {
-            $('.tabs').tabs();
-        });
-        $(document).ready(function () {
-            $('select').formSelect();
         });
     </script>
 

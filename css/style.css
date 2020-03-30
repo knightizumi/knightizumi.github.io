@@ -71,6 +71,12 @@ nav ul.nav-dropdown a:hover {
         min-height: 1096px;
     }
 }
+@media screen and (max-width:1024px) {
+    section.content {
+        padding-bottom: 50px;
+        min-height: 429px;
+    }
+}
 
 /*footer*/
 .footer {

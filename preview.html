@@ -7,19 +7,21 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>ivs</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link type="text/css" rel="stylesheet" href="css/materialize.css" />
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+        integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+        <link type="text/css" rel="stylesheet" href="css/materialize.css" />
+    <link type="text/css" rel="stylesheet" href="css/all.css" />
     <link type="text/css" rel="stylesheet" href="css/style.css" />
 </head>
 
 <body>
-
     <!-- nav -->
-    <div class="navbar-fixed ">
-        <nav class="cyan navlist">
+    <div class="navbar-fixed">
+        <nav class="navlist cyan">
             <div class="nav-wrapper container">
                 <a href="index.html" class="brand-logo"><img src="images/AIMEN2.png" class="logo" height="60px"></a>
                 <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-
                 <ul class="right hide-on-med-and-down navbar">
                     <li><a href="#"> <i class="material-icons left">find_in_page</i>即時分析</a></li>
                     <li><a a class="dropdown-trigger" href="#!" data-target="dropdown1"><i
@@ -36,6 +38,7 @@
                                 class="material-icons left">public</i>繁體中文<i
                                 class="material-icons right">arrow_drop_down</i></a></li>
                     <li><a href="#"><i class="material-icons left">account_circle</i>登入</a></li>
+
                 </ul>
             </div>
         </nav>
@@ -44,7 +47,7 @@
     <ul id="dropdown1" class="dropdown-content nav-dropdown">
         <li class="spacer"></li>
         <li><a href="camera.html">攝影機設定</a></li>
-        <li><a href="#!">監控區域設定</a></li>
+        <li><a href="Monitoring.html">監控區域設定</a></li>
         <li><a href="#!">查詢</a></li>
         <li><a href="#!">IVS重啟</a></li>
         <li><a href="#!">設定檔備份</a></li>
@@ -91,16 +94,58 @@
         <li><a href="#"><i class="material-icons left">account_circle</i>登入</a></li>
     </ul>
 
-    <!-- slider -->
+    <!-- content -->
+    <section class="content">
+        <div class="row container">
+            <h3 class="header center"><b>即時分析</b></h3>
+        </div>
+        <div class="container">
+            <div class="col s12">
+                <ul class="tabs">
+                    <li class="tab col s1">
+                        <a class="active fontcyan" href="#localcamera1">
+                            <i class="material-icons">local_see</i>
+                            camera1
+                            <i class="material-icons close"></i>
+                        </a>
+                    </li>
+                    <li class="tab col s1">
+                        <a class="fontcyan" href="#localcamera2">
+                            <i class="material-icons">local_see</i>
+                            camera2
+                            <i class="material-icons close"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
 
+            <div id="localcamera1" class="col s12">
+                <div class="row">
+                    <div class="col s12">
+                        <div>
+                        <img class="materialboxed" width="100%" src="images/background.jpg">
+                        </div>
+                        <a role="button">
+                            <div>
+                                 <i class="material-icons">navigate_before</i>
+                            </div>
+                           
+                        </a>
 
-    <div class="carousel carousel-slider">
-        <a class="carousel-item" href="#one!"> <img src="images/ivs4.png" class="slider_img"></a>
-        <a class="carousel-item" href="#two!"> <img src="images/ivs4.png"  class="slider_img"></a>
-        <a class="carousel-item" href="#three!"> <img src="images/ivs4.png"  class="slider_img"></a>
-    </div>
+                    </div>
+                </div>
+            </div>
+            <div id="localcamera2" class="col s12">
+                <div class="row">
+                    <div class="col s12">
 
+                    </div>
+                </div>
+            </div>
 
+        </div>
+
+    </section>
     <!-- Footer -->
     <footer class="section cyan white-text center">
         <div class="container">
@@ -114,7 +159,8 @@
 
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script type="text/javascript" src="js/materialize.min.js"></script>
-
+    <script type="text/javascript" src="js/stepper.js"></script>
+    <script type="text/javascript" src="js/all.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
 
@@ -136,10 +182,12 @@
             $('.collapsible').collapsible();
         });
 
-        $('.carousel.carousel-slider').carousel({
-            fullWidth: true
+        $(document).ready(function () {
+            $('.tabs').tabs();
         });
-
+        $(document).ready(function () {
+            $('select').formSelect();
+        });
     </script>
 
 </body>

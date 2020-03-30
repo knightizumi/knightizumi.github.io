@@ -258,3 +258,13 @@ div.collapsible_content{
     border: #000 1px solid;
     padding :20px;
 }
+
+/*card*/
+.card-title{
+    padding: 12px 24px;
+}
+.title{
+    padding: 0px 15px 10px 0px;
+    border-bottom: #00bcd4 3px solid;
+    
+}

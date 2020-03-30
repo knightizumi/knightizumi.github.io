@@ -65,18 +65,12 @@ nav ul.nav-dropdown a:hover {
 }
 
 /*content*/
-@media screen and (min-width: 1600px) {
+
     section.content {
         padding-bottom: 50px;
-        min-height: 1096px;
+        min-height: calc(100% - 195px);
     }
-}
-@media screen and (max-width:1024px) {
-    section.content {
-        padding-bottom: 50px;
-        min-height: 429px;
-    }
-}
+
 
 /*footer*/
 .footer {

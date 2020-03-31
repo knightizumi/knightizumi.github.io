@@ -10,186 +10,170 @@
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
         integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-        <link type="text/css" rel="stylesheet" href="css/materialize.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <link type="text/css" rel="stylesheet" href="css/all.css" />
-    <link type="text/css" rel="stylesheet" href="css/style.css" />
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC:400,700|Work+Sans:300,400,700" rel="stylesheet">
+    <link rel="stylesheet" href="fonts/icomoon/style.css">
+    <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+    <link rel="stylesheet" href="css/jquery-ui.css'">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mediaelement@4.2.7/build/mediaelementplayer.min.css">
+    <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
+    <link rel="stylesheet" href="css/aos.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link type="text/css" rel="stylesheet" href="css/style123.css" />
+
+
 </head>
 
 <body>
-    <!-- nav -->
-    <div class="navbar-fixed">
-        <nav class="navlist cyan">
-            <div class="nav-wrapper container">
-                <a href="index.html" class="brand-logo"><img src="images/AIMEN2.png" class="logo" height="60px"></a>
-                <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-                <ul class="right hide-on-med-and-down navbar">
-                    <li><a href="#"> <i class="material-icons left">find_in_page</i>即時分析</a></li>
-                    <li><a a class="dropdown-trigger" href="#!" data-target="dropdown1"><i
-                                class="material-icons left">local_see</i>IVS <i
-                                class="material-icons right">arrow_drop_down</i></a></li>
-
-                    <li><a class="dropdown-trigger" href="#!" data-target="dropdown2"><i
-                                class="material-icons left">build</i>系統<i
-                                class="material-icons right">arrow_drop_down</i></a></li>
-
-                    <li><a href="#"><i class="material-icons left">tv</i>歷史資料</a></li>
-
-                    <li><a class="dropdown-trigger" href="#!" data-target="language"> <i
-                                class="material-icons left">public</i>繁體中文<i
-                                class="material-icons right">arrow_drop_down</i></a></li>
-                    <li><a href="#"><i class="material-icons left">account_circle</i>登入</a></li>
-
-                </ul>
-            </div>
-        </nav>
-    </div>
-
-    <ul id="dropdown1" class="dropdown-content nav-dropdown">
-        <li class="spacer"></li>
-        <li><a href="cameras.html">攝影機設定</a></li>
-        <li><a href="mon_setting.html">監控區域設定</a></li>
-        <li><a href="#!">查詢</a></li>
-        <li><a href="#!">IVS重啟</a></li>
-        <li><a href="#!">設定檔備份</a></li>
-    </ul>
-    <ul id="dropdown2" class="dropdown-content nav-dropdown">
-        <li class="spacer"></li>
-        <li><a href="#!">系統設定</a></li>
-        <li><a href="storage.html">系統資訊</a></li>
-        <li><a href="#!">重新開機</a></li>
-        <li><a href="#!">系統更新</a></li>
-        <li><a href="#!">回復原廠設定</a></li>
-        <li><a href="about.html">關於我們</a></li>
-    </ul>
-    <ul id="language" class="dropdown-content nav-dropdown">
-        <li class="spacer"></li>
-        <li><a href="#!">English</a></li>
-        <li><a href="#!">繁體中文</a></li>
-        <li><a href="#!">日本語</a></li>
-    </ul>
-    <ul class="sidenav" id="mobile-demo">
-
-        <li><a href="#"> <i class="material-icons left">find_in_page</i>即時分析</a></li>
-        <li><a href="#"><i class="material-icons left">local_see</i>IVS </a></li>
-        <li>
-            <ul class="collapsible collapsible-accordion">
-                <li>
-                    <a class=""><i class="material-icons left">local_see</i>IVS <i
-                            class="material-icons right">arrow_drop_down</i></a>
-                    <div class="collapsible-body">
-                        <ul>
-                            <li><a href="#!">Imports Sample Data</a></li>
-                            <li><a href="#!">Exports Sample Data</a></li>
-                            <li><a href="#!">Local Ports Data</a></li>
-                            <li><a href="#!">Major Products: Local Imports</a></li>
-                            <li><a href="#!">Major Products: Local Exports</a></li>
-                        </ul>
-                    </div>
-                </li>
-            </ul>
-        </li>
-        <li><a href="#"><i class="material-icons left">build</i>系統</a></li>
-        <li><a href="#"><i class="material-icons left">tv</i>歷史資料</a></li>
-        <li><a href="#"><i class="material-icons left">public</i>繁體中文</a></li>
-        <li><a href="#"><i class="material-icons left">account_circle</i>登入</a></li>
-    </ul>
-
     <!-- content -->
     <section class="content">
-        <div class="row container">
-            <h3 class="header center"><b>即時分析</b></h3>
-        </div>
         <div class="container">
-            <div class="col s12">
-                <ul class="tabs">
-                    <li class="tab col s1">
-                        <a class="active fontcyan" href="#localcamera1">
-                            <i class="material-icons">local_see</i>
-                            camera1
-                            <i class="material-icons close"></i>
-                        </a>
-                    </li>
-                    <li class="tab col s1">
-                        <a class="fontcyan" href="#localcamera2">
-                            <i class="material-icons">local_see</i>
-                            camera2
-                            <i class="material-icons close"></i>
-                        </a>
-                    </li>
-                </ul>
-            </div>
+            <h3 class="center"><b>即時分析</b></h3>
 
-            <div id="localcamera1" class="col s12">
-                <div class="row">
-                    <div class="col s12">
-                        <div>
-                        <img class="materialboxed" width="100%" src="images/background.jpg">
-                        </div>
-                        <a role="button">
+            <ul class="nav nav-tabs">
+                <li class="active"><a data-toggle="tab" href="#home"><span class="glyphicon glyphicon-camera enable"
+                            style="padding:10px"></span>camera1</a></li>
+                <li><a data-toggle="tab" href="#menu1"><span class="glyphicon glyphicon-camera enable"
+                            style="padding:10px"></span>Menu 1</a></li>
+            </ul>
+            <div class="tab-content">
+                <div id="home" class="tab-pane fade in active">
+                    <div class="col-md-9" style="padding:0px">
+                        <img src="images/ivs4.png" width="100%">
+                    </div>
+                    <div class="col-md-3">
+                        <form class="traffic_analysis">
                             <div>
-                                 <i class="material-icons">navigate_before</i>
+                                <label class="demo_checkbox">
+                                    <input type="checkbox" class="checkbox" checked="checked" />
+                                    <span>交通流量</span>
+                                </label>
+                                <label class="demo_checkbox" class="checkbox">
+                                    <input type="checkbox" checked="checked" />
+                                    <span>人數</span>
+                                </label>
+                                <label class="demo_checkbox" class="checkbox">
+                                    <input type="checkbox" checked="checked" />
+                                    <span>車流負載</span>
+                                </label>
                             </div>
-                           
-                        </a>
+                        </form>
+                        <div class="card">
+                            <div class="card-title">
+                                <span class="">交通流量</span>
+                            </div>
+                            <div class="card-content">
+                                <table class="table" id="traffic">
+                                    <thead>
+                                        <tr>
+                                            <th>車種</th>
+                                            <th>數量</th>
+                                        </tr>
+                                    </thead>
 
+                                    <tbody>
+                                        <tr>
+                                            <td>腳踏車</td>
+                                            <td>1</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td>摩托車</td>
+                                            <td>2</td>
+                                        </tr>
+                                        <tr>
+                                            <td>小型車</td>
+                                            <td>3</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="menu1" class="tab-pane fade">
+                    <div class="col-md-9" style="padding:0px">
+                        <img src="images/ivs4.png" width="100%">
+                    </div>
+                    <div class="col-md-3">
+                        <form class="traffic_analysis">
+                            <div>
+                                <label class="demo_checkbox">
+                                    <input type="checkbox" class="checkbox" checked="checked" />
+                                    <span>交通流量</span>
+                                </label>
+                                <label class="demo_checkbox" class="checkbox">
+                                    <input type="checkbox" checked="checked" />
+                                    <span>人數</span>
+                                </label>
+                                <label class="demo_checkbox" class="checkbox">
+                                    <input type="checkbox" checked="checked" />
+                                    <span>車流負載</span>
+                                </label>
+                            </div>
+                        </form>
+                        <div class="card">
+                            <div class="card-title">
+                                <span class="">交通流量</span>
+                            </div>
+                            <div class="card-content">
+                                <table class="table" id="traffic">
+                                    <thead>
+                                        <tr>
+                                            <th>車種</th>
+                                            <th>數量</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        <tr>
+                                            <td>腳踏車</td>
+                                            <td>1</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td>摩托車</td>
+                                            <td>2</td>
+                                        </tr>
+                                        <tr>
+                                            <td>小型車</td>
+                                            <td>3</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div id="localcamera2" class="col s12">
-                <div class="row">
-                    <div class="col s12">
-
-                    </div>
-                </div>
-            </div>
-
         </div>
-
     </section>
     <!-- Footer -->
     <footer class="section cyan white-text center">
         <div class="container">
             <div class="row">
-                <div class="col s12 m12">
+                <div class="col-md-12">
                     <p> © 2020 AIMobile</p>
                 </div>
             </div>
         </div>
     </footer>
 
-    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/materialize.min.js"></script>
     <script type="text/javascript" src="js/stepper.js"></script>
     <script type="text/javascript" src="js/all.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function () {
-
-        });
-        $(document).ready(function () {
-            $('.sidenav').sidenav();
-        });
-
-        $(".dropdown-trigger").dropdown({
-            inDuration: 300,
-            outDuration: 225,
-            constrain_width: false, // Does not change width of dropdown to that of the activator
-            hover: true, // Activate on hover
-            gutter: 0, // Spacing from edge
-            belowOrigin: false, // Displays dropdown below the button
-            alignment: 'left',// Displays dropdown with edge aligned to the left of button
-        });
-        $(document).ready(function () {
-            $('.collapsible').collapsible();
-        });
-
-        $(document).ready(function () {
-            $('.tabs').tabs();
-        });
-        $(document).ready(function () {
-            $('select').formSelect();
-        });
-    </script>
-
 </body>
 
 

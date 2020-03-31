@@ -267,8 +267,16 @@ span.title{
     padding: 0px 15px 10px 0px;
     border-bottom: #00bcd4 3px solid;
 }
+.hard_info{
+    margin: 15px 0px ;
+}
 
 /*demo_checkbox*/
 label.demo_checkbox{
     margin-right: 10px;
+
+}
+
+form.traffic_analysis{
+    margin-top: 20px;
 }

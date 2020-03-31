@@ -12,6 +12,7 @@
         integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
     <link type="text/css" rel="stylesheet" href="css/materialize.css" />
     <link type="text/css" rel="stylesheet" href="css/all.css" />
+    <link type="text/css" rel="stylesheet" href="css/Chart.css" />
     <link type="text/css" rel="stylesheet" href="css/style.css" />
 </head>
 
@@ -101,57 +102,58 @@
         </div>
         <div class="container">
             <div class="row">
-                <div class="col s12 m12">
+                <div class="col s6 m6">
                     <div class="card">
                         <div class="card-title">
                             <span class="title cyan-text">硬碟資訊</span>
                         </div>
                         <div class="card-content row">
-                            <div class="col s6 ">
-                                <p>總容量：33.731Gb</p>
-                                <p>剩餘空間：108.173Gb</p>
-                                <p>被使用空間：113.618Gb</p>
+                            <div class="col s12">
+                                <div class="hard_info">
+                                    <p>總容量：33.731Gb</p>
+                                    <p>剩餘空間：108.173Gb</p>
+                                    <p>被使用空間：113.618Gb</p>
+                                </div>
+                                <div class="hard_info" >
+                                    <p>Photo:56339.70Mb</p>
+                                    <p>Record：59625.40Mb</p>
+                                </div>
 
-                                <p>Photo:56339.70Mb</p>
-                                <p>Record：59625.40Mb</p>
-                                <div id="disk_data"></div>
                             </div>
-                            <div class="col s6">
-                                <div id="flotcontainer"></div>
+                            <div class="col s12">
+                                <canvas id="myChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col s6 m6">
+                    <div class="row">
+                        <div class="col s12 m12">
+                            <div class="card">
+                                <div class="card-title">
+                                    <span class="title cyan-text">CPU</span>
+                                </div>
+                                <div class="card-content">
+                                    <p>型號：Intel Core i5 6200U</p>
+                                    <p>頻率：897.58MHz</p>
+                                    <p>使用率：40%</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col s12 m12">
+                            <div class="card">
+                                <div class="card-title">
+                                    <span class="title cyan-text">IP</span>
+                                </div>
+                                <div class="card-content">
+                                    <p>地點：台灣</p>
+                                    <p>IP位址：140.131.114.243</p>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col s6 m6">
-                    <div class="card">
-                        <div class="card-title">
-                            <span class="title cyan-text">CPU</span>
-                        </div>
-                        <div class="card-content">
-                            <p>型號：Intel Core i5 6200U</p>
-                            <p>頻率：897.58MHz</p>
-                            <p>使用率：40%</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col s6 m6">
-                    <div class="card">
-                        <div class="card-title">
-                            <span class="title cyan-text">IP</span>
-                        </div>
-                        <div class="card-content">
-                            <p>地點：台灣</p>
-                            <p>IP位址：140.131.114.243</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-
-
         </div>
 
     </section>
@@ -170,12 +172,16 @@
     <script type="text/javascript" src="js/materialize.min.js"></script>
     <script type="text/javascript" src="js/stepper.js"></script>
     <script type="text/javascript" src="js/all.js"></script>
+    <script type="text/javascript" src="js/Chart.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
 
         });
         $(document).ready(function () {
             $('.sidenav').sidenav();
+            $('.collapsible').collapsible();
+            $('select').formSelect();
+            $('.tabs').tabs();
         });
 
         $(".dropdown-trigger").dropdown({
@@ -187,56 +193,28 @@
             belowOrigin: false, // Displays dropdown below the button
             alignment: 'left',// Displays dropdown with edge aligned to the left of button
         });
-        $(document).ready(function () {
-            $('.collapsible').collapsible();
+
+        var ctx = document.getElementById('myChart');
+        var myChart = new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: ['已使用', '未使用'],
+                datasets: [{
+                    label: '# of Votes',
+                    data: [12, 19],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(75, 192, 192, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(75, 192, 192, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            }
         });
 
-        $(document).ready(function () {
-            $('.tabs').tabs();
-        });
-        $(document).ready(function () {
-            $('select').formSelect();
-        });
-
-        $(document).ready(function () {
-            var disk_info = JSON.parse('{{disk_info|tojson}}')
-            var data_info = JSON.parse('{{data_info|tojson}}')
-
-            var html_info = "{{_('Total')}} : " + disk_info['total'] + " Gb\n" +
-                "{{_('Free')}} : " + disk_info['free'] + " Gb\n" +
-                "{{_('Used')}} : " + disk_info['used'] + " Gb\n\n"
-            html_info += "{{_('Photo')}} : " + data_info['photo'] + " Mb\n" +
-                "{{_('Record')}} : " + data_info['record'] + " Mb\n"
-
-            var obj = $('#disk_data').text(html_info)
-            obj.html(obj.html().replace(/\n/g, '<br/>'));
-
-            var data = [
-                { label: "free", data: disk_info['free'] / disk_info['total'], color: "#63E24A" },
-                { label: "uesd", data: disk_info['used'] / disk_info['total'], color: "#FF3333" },
-            ]
-            var options = {
-                series: {
-                    pie: {
-                        show: true,
-                        radius: 0.8,
-                        formatter: function (label, series) {
-                            return '<div style="border:1px solid grey;font-size:8pt;text-align:center;padding:5px;color:white;">' +
-                                label + ' : ' +
-                                Math.round(series.percent) +
-                                '%</div>';
-                        },
-                        background: {
-                            opacity: 0.8,
-                            color: '#000'
-                        }
-                    }
-                },
-                legend: { show: false },
-            };
-            $.plot($("#flotcontainer"), data, options);
-
-        })
     </script>
 
 </body>

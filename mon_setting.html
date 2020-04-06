@@ -306,7 +306,7 @@
                                                 <div class="col-12">
                                                     <div class="form-group">
                                                         <label>Example of multiple select</label>
-                                                        <select multiple placeholder="請選擇" data-allow-clear="1">
+                                                        <select multiple placeholder="請選擇" data-allow-clear="1"  id="multselect">
                                                             <option checked>bicycle</option>
                                                             <option>motorcycle</option>
                                                             <option>car</option>
@@ -431,6 +431,8 @@
 
     <!-- select2-bootstrap4-theme -->
     <script type="text/javascript">
+    $(".select2-search,.select2-search--dropdown").remove();
+    
         $(document).ready(function () {
             //Initialize tooltips
             $('.nav-tabs > li a[title]').tooltip();
@@ -468,7 +470,7 @@
         }
         $(function () {
             $('select').each(function () {
-                $(this).select2({
+                $("#multselect").select2({
                     theme: 'bootstrap4',
                     width: 'style',
                     placeholder: $(this).attr('placeholder'),

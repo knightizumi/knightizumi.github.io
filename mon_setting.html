@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -10,317 +9,403 @@
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
         integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-        <link type="text/css" rel="stylesheet" href="css/materialize.css" />
-    <link type="text/css" rel="stylesheet" href="css/materialize-stepper.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <link type="text/css" rel="stylesheet" href="css/all.css" />
-    <link type="text/css" rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="css/jquery-ui.css'"> -->
+    <link rel="stylesheet" href="css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/aos.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+    <!-- select2 -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+
+    <!-- select2-bootstrap4-theme -->
+    <link href="https://raw.githack.com/ttskch/select2-bootstrap4-theme/master/dist/select2-bootstrap4.css"
+        rel="stylesheet"> <!-- for live demo page -->
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link type="text/css" rel="stylesheet" href="css/style123.css" />
+    <style>
+        .wizard {
+            margin: 20px auto;
+            background: #fff;
+        }
+
+        .wizard .nav-tabs {
+            position: relative;
+            margin: 40px auto;
+            margin-bottom: 0;
+            border-bottom-color: #e0e0e0;
+        }
+
+        .wizard>div.wizard-inner {
+            position: relative;
+        }
+
+        .connecting-line {
+            height: 2px;
+            background: #e0e0e0;
+            position: absolute;
+            width: 80%;
+            margin: 0 auto;
+            left: 0;
+            right: 0;
+            top: 50%;
+            z-index: 1;
+        }
+
+        .wizard .nav-tabs>li.active>a,
+        .wizard .nav-tabs>li.active>a:hover,
+        .wizard .nav-tabs>li.active>a:focus {
+            color: #555555;
+            cursor: default;
+            border: 0;
+            border-bottom-color: transparent;
+        }
+
+        span.round-tab {
+            width: 70px;
+            height: 70px;
+            line-height: 70px;
+            display: inline-block;
+            border-radius: 100px;
+            background: #fff;
+            border: 2px solid #e0e0e0;
+            z-index: 2;
+            position: absolute;
+            left: 0;
+            text-align: center;
+            font-size: 25px;
+        }
+
+        span.round-tab i {
+            color: #555555;
+        }
+
+        .wizard li.active span.round-tab {
+            background: #fff;
+            border: 2px solid #5bc0de;
+
+        }
+
+        .wizard li.active span.round-tab i {
+            color: #5bc0de;
+        }
+
+        span.round-tab:hover {
+            color: #333;
+            border: 2px solid #333;
+        }
+
+        .wizard .nav-tabs>li {
+            width: 25%;
+        }
+
+        .wizard li:after {
+            content: " ";
+            position: absolute;
+            left: 46%;
+            opacity: 0;
+            margin: 0 auto;
+            bottom: 0px;
+            border: 5px solid transparent;
+            border-bottom-color: #5bc0de;
+            transition: 0.1s ease-in-out;
+        }
+
+        .wizard li.active:after {
+            content: " ";
+            position: absolute;
+            left: 46%;
+            opacity: 1;
+            margin: 0 auto;
+            bottom: 0px;
+            border: 10px solid transparent;
+            border-bottom-color: #5bc0de;
+        }
+
+        .wizard .nav-tabs>li a {
+            width: 70px;
+            height: 70px;
+            margin: 20px auto;
+            border-radius: 100%;
+            padding: 0;
+        }
+
+        .wizard .nav-tabs>li a:hover {
+            background: transparent;
+        }
+
+        .wizard .tab-pane {
+            position: relative;
+            padding-top: 50px;
+        }
+
+        .wizard h3 {
+            margin-top: 0;
+        }
+
+        @media(max-width : 585px) {
+
+            .wizard {
+                width: 90%;
+                height: auto !important;
+            }
+
+            span.round-tab {
+                font-size: 16px;
+                width: 50px;
+                height: 50px;
+                line-height: 50px;
+            }
+
+            .wizard .nav-tabs>li a {
+                width: 50px;
+                height: 50px;
+                line-height: 50px;
+            }
+
+            .wizard li.active:after {
+                content: " ";
+                position: absolute;
+                left: 35%;
+            }
+        }
+    </style>
+
 </head>
 
+
 <body>
-    <!-- nav -->
-    <div class="navbar-fixed">
-        <nav class="navlist cyan">
-            <div class="nav-wrapper container">
-                <a href="index.html" class="brand-logo"><img src="images/AIMEN2.png" class="logo" height="60px"></a>
-                <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-                <ul class="right hide-on-med-and-down navbar">
-                    <li><a href="#"> <i class="material-icons left">find_in_page</i>即時分析</a></li>
-                    <li><a a class="dropdown-trigger" href="#!" data-target="dropdown1"><i
-                                class="material-icons left">local_see</i>IVS <i
-                                class="material-icons right">arrow_drop_down</i></a></li>
-
-                    <li><a class="dropdown-trigger" href="#!" data-target="dropdown2"><i
-                                class="material-icons left">build</i>系統<i
-                                class="material-icons right">arrow_drop_down</i></a></li>
-
-                    <li><a href="#"><i class="material-icons left">tv</i>歷史資料</a></li>
-
-                    <li><a class="dropdown-trigger" href="#!" data-target="language"> <i
-                                class="material-icons left">public</i>繁體中文<i
-                                class="material-icons right">arrow_drop_down</i></a></li>
-                    <li><a href="#"><i class="material-icons left">account_circle</i>登入</a></li>
-
-                </ul>
-            </div>
-        </nav>
-    </div>
-
-    <ul id="dropdown1" class="dropdown-content nav-dropdown">
-        <li class="spacer"></li>
-        <li><a href="cameras.html">攝影機設定</a></li>
-        <li><a href="mon_setting.html">監控區域設定</a></li>
-        <li><a href="#!">查詢</a></li>
-        <li><a href="#!">IVS重啟</a></li>
-        <li><a href="#!">設定檔備份</a></li>
-    </ul>
-    <ul id="dropdown2" class="dropdown-content nav-dropdown">
-        <li class="spacer"></li>
-        <li><a href="#!">系統設定</a></li>
-        <li><a href="storage.html">系統資訊</a></li>
-        <li><a href="#!">重新開機</a></li>
-        <li><a href="#!">系統更新</a></li>
-        <li><a href="#!">回復原廠設定</a></li>
-        <li><a href="about.html">關於我們</a></li>
-    </ul>
-    <ul id="language" class="dropdown-content nav-dropdown">
-        <li class="spacer"></li>
-        <li><a href="#!">English</a></li>
-        <li><a href="#!">繁體中文</a></li>
-        <li><a href="#!">日本語</a></li>
-    </ul>
-    <ul class="sidenav" id="mobile-demo">
-
-        <li><a href="#"> <i class="material-icons left">find_in_page</i>即時分析</a></li>
-        <li><a href="#"><i class="material-icons left">local_see</i>IVS </a></li>
-        <li>
-            <ul class="collapsible collapsible-accordion">
-                <li>
-                    <a class=""><i class="material-icons left">local_see</i>IVS <i
-                            class="material-icons right">arrow_drop_down</i></a>
-                    <div class="collapsible-body">
-                        <ul>
-                            <li><a href="#!">Imports Sample Data</a></li>
-                            <li><a href="#!">Exports Sample Data</a></li>
-                            <li><a href="#!">Local Ports Data</a></li>
-                            <li><a href="#!">Major Products: Local Imports</a></li>
-                            <li><a href="#!">Major Products: Local Exports</a></li>
-                        </ul>
-                    </div>
-                </li>
-            </ul>
-        </li>
-        <li><a href="#"><i class="material-icons left">build</i>系統</a></li>
-        <li><a href="#"><i class="material-icons left">tv</i>歷史資料</a></li>
-        <li><a href="#"><i class="material-icons left">public</i>繁體中文</a></li>
-        <li><a href="#"><i class="material-icons left">account_circle</i>登入</a></li>
-    </ul>
-
     <!-- content -->
     <section class="content">
-        <div class="row container">
-            <h3 class="header center"><b>監控區域設定</b></h3>
-        </div>
         <div class="container">
-            <div class="col s12">
-                <ul class="tabs">
-                    <li class="tab col s1">
+            <h3 class="center"><b>監控區域設定</b></h3>
 
-                        <a class="active fontcyan" href="#localcamera1">
-                            <i class="material-icons">local_see</i>
-                            camera1
-                            <i class="material-icons close"></i>
-                        </a>
+            <ul class="nav nav-tabs">
+                <li class="active"><a data-toggle="tab" href="#localcamera1"><span
+                            class="glyphicon glyphicon-camera enable" style="padding:10px"></span>camera1</a></li>
+                <li><a data-toggle="tab" href="#menu1"><span class="glyphicon glyphicon-camera enable"
+                            style="padding:10px"></span>Menu 1</a></li>
+            </ul>
 
-                    </li>
-                </ul>
-            </div>
-
-            <div id="localcamera1" class="col s12">
-                <div class="row">
-                    <div class="col s1"></div>
-                    <div class="col s10">
+            <div class="tab-content">
+                <div id="localcamera1" class="tab-pane fade in active">
+                    <div class="col-md-12 wizard">
                         <h5 class="title">新增監控區域</h5>
+                        <div class="wizard-inner">
+                            <div class="connecting-line"></div>
+                            <ul class="nav nav-tabs" role="tablist">
 
-                        <form>
-                            <ul class="stepper parallel horizontal">
-                                <li class="step active">
-                                    <div class="step-title waves-effect waves-dark">Step 1</div>
-                                    <div class="step-content" style="height: 100vh;">
-                                        <div class="row">
-                                            <div class='form-field col s12'>
-                                                <div class="row">
-                                                    <div class="input-field col s12">
-                                                        <input placeholder="名稱" id="name" name="name" type="text" class="validate required">
-                                                        <label for="name" class="input_text">名稱</label>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="input-field col s11">
-                                                        <select>
-                                                            <option disabled selected>選擇你的伺服器</option>
-                                                            <option value="1">Kao1(192.168.114.234)</option>
-                                                            <option value="2">2</option>
-                                                            <option value="3">3</option>
-                                                        </select>
-                                                        <label class="input_text">伺服器</label>
-                                                    </div>
-                                                    <div class="input-field col s1 ">
-                                                        <i class="material-icons center add">add_box</i>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="input-field col s6">
-                                                        <img src="images/ivs.png" width="100%">
-                                                    </div>
-                                                    <div class="input-field col s6">
-                                                        <div class="col s12 position-btn">
-                                                            <a class="waves-effect waves-light btn-large effect-2">(150,124)</a>
-                                                            <a class="waves-effect waves-light btn-large effect-2">(150,124)</a>
-                                                            <a class="waves-effect waves-light btn-large effect-2">(150,124)</a>    
-                                                            <a class="waves-effect waves-light btn-large effect-2">(150,124)</a>
-                                                        </div>
-                                                        
-                                                        <div class="col s12">
-                                                              <a class="waves-effect waves-light btn-large right red">clean all</a>
-                                                        </div>
-                                                      
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="center">
-                                                <button
-                                                    class="waves-effect waves-dark btn red  previous-step">取消</button>
-
-                                                <button class="waves-effect waves-dark btn next-step cyan"
-                                                    data-validator="validateStepOne">下一步</button>
-                                            </div>
-                                        </div>
-                                    </div>
+                                <li role="presentation" class="active">
+                                    <a href="#step1" data-toggle="tab" aria-controls="step1" role="tab" title="Step 1">
+                                        <span class="round-tab">
+                                            1
+                                        </span>
+                                    </a>
                                 </li>
 
-                                <li class="step">
-                                    <div class="step-title waves-effect waves-dark">Step 2</div>
-                                    <div class="step-content">
-                                        <div class="row">
-                                            <div class='form-field col s12'>
-                                                <div class="row">
-                                                    <form>
-                                                        <div class="input-field col s12">
-                                                            <select>
-                                                                <option value="" disabled selected>請選擇</option>
-                                                                <option value="1">車流負載</option>
-                                                                <option value="2">車流方向性</option>
-                                                                <option value="3">交通資料統計</option>
-                                                                <option value="4">出入口監控</option>
-                                                                <option value="5">停車</option>
-                                                                <option value="6">人</option>
-                                                                <option value="7">上下車</option>
-                                                                <option value="8">車牌</option>
-                                                            </select>
-                                                            <label>偵測範圍功能</label>
-                                                        </div>
-                                                    </form>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="center">
-                                            <button class="waves-effect waves-dark btn red  previous-step">上一步</button>
+                                <li role="presentation" class="disabled">
+                                    <a href="#step2" data-toggle="tab" aria-controls="step2" role="tab" title="Step 2">
+                                        <span class="round-tab">
+                                            2
+                                        </span>
+                                    </a>
+                                </li>
+                                <li role="presentation" class="disabled">
+                                    <a href="#step3" data-toggle="tab" aria-controls="step3" role="tab" title="Step 3">
+                                        <span class="round-tab">
+                                            3
+                                        </span>
+                                    </a>
+                                </li>
 
-                                            <button class="waves-effect waves-dark btn next-step cyan"
-                                                data-validator="validateStepOne">下一步</button>
+                                <li role="presentation" class="disabled">
+                                    <a href="#complete" data-toggle="tab" aria-controls="complete" role="tab"
+                                        title="complete">
+                                        <span class="round-tab">
+                                            4
+                                        </span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <form role="form">
+                            <div class="tab-content">
+                                <div class="tab-pane active" role="tabpanel" id="step1">
+                                    <h3>Step 1</h3>
+                                    <div class="input-field">
+                                        <input id="name" name="name" type="text" class="validate required">
+                                        <label for="name" class="input_text">名稱</label>
+                                    </div>
+                                    <div class="row">
+                                        <div class="input-field col-6">
+                                            <img src="images/ivs.png" width="100%">
+                                        </div>
+                                        <div class="input-field col-6">
+                                            <div class="col s12 position-btn">
+                                                <a class="waves-effect waves-light btn-large effect-2">(150,124)</a>
+                                                <a class="waves-effect waves-light btn-large effect-2">(150,124)</a>
+                                                <a class="waves-effect waves-light btn-large effect-2">(150,124)</a>
+                                                <a class="waves-effect waves-light btn-large effect-2">(150,124)</a>
+                                            </div>
+
+                                            <div class="col s12">
+                                                <a class="waves-effect waves-light btn-large right red">clean
+                                                    all</a>
+                                            </div>
+
                                         </div>
                                     </div>
-                                </li>
-                                <li class="step">
-                                    <div class="step-title waves-effect waves-dark">Step 3</div>
-                                    <div class="step-content">
-                                        <div class="row">
-                                            <h5 class="center cyan-text"><b>偵測設定：車流負載</b></h5>
-                                            <div class="input-field col s6">
-                                                <img src="images/ivs.png" width="100%">
-                                            </div>
-                                            <div class="input-field col s6">
-                                                <div class="row">
-                                                    <div class="col s12">
-                                                        <label class="input_text">範圍選擇</label>
-                                                        <p><i class="material-icons center add">add_box</i></p>
-                                                    </div>
-                                                    <div class="input-field col s12">
-                                                        <select multiple>
-                                                            <option disabled>請選擇</option>
-                                                            <option value="1">腳踏車</option>
-                                                            <option value="2">機車</option>
-                                                            <option value="3">汽車</option>
+                                    <ul class="list-inline pull-right">
+                                        <li><button type="button" class="btn btn-primary next-step">Save and
+                                                continue</button></li>
+                                    </ul>
+                                </div>
+                                <div class="tab-pane" role="tabpanel" id="step2">
+                                    <h3>Step 2</h3>
+                                    <div class="form-group">
+                                        <label for="rgn_type">偵測範圍功能</label>
+                                        <select class="form-control" id="rgn_type">
+                                            <option value="" disabled selected>請選擇</option>
+                                            <option value="1">車流負載</option>
+                                            <option value="2">車流方向性</option>
+                                            <option value="3">交通資料統計</option>
+                                            <option value="4">出入口監控</option>
+                                            <option value="5">停車</option>
+                                            <option value="6">人</option>
+                                            <option value="7">上下車</option>
+                                            <option value="8">車牌</option>
+                                        </select>
+                                    </div>
+
+                                    <ul class="list-inline pull-right">
+                                        <li><button type="button" class="btn btn-default prev-step">Previous</button>
+                                        </li>
+                                        <li><button type="button" class="btn btn-primary next-step">Save and
+                                                continue</button></li>
+                                    </ul>
+                                </div>
+                                <div class="tab-pane " role="tabpanel" id="step3">
+                                    <h3>Step 3</h3>
+                                    <h5 class="center cyan-text"><b>偵測設定：車流負載</b></h5>
+                                    <div class="row">
+                                        <div class="input-field col-6">
+                                            <img src="images/ivs.png" width="100%">
+                                        </div>
+                                        <div class="input-field col-6">
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <label class="input_text">範圍選擇</label>
+                                                    <p><i class="material-icons center add">add_box</i></p>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="form-group">
+                                                        <label>Example of multiple select</label>
+                                                        <select multiple placeholder="請選擇" data-allow-clear="1">
+                                                            <option checked>bicycle</option>
+                                                            <option>motorcycle</option>
+                                                            <option>car</option>
+                                                            <option>bus</option>
+                                                            <option>mid</option>
+                                                            <option>truck</option>
+                                                            <option>pedestrian</option>
                                                         </select>
-                                                        <label class="input_text">車種選擇</label>
                                                     </div>
 
-                                                    <div class="col s6">
-                                                        <label class="input_text">儲存影像</label>
-                                                        <div class="switch">
-                                                            <label>
-                                                                Disable
-                                                                <input type="checkbox">
-                                                                <span class="lever"></span>
-                                                                Enable
-                                                            </label>
-                                                        </div>
+                                                </div>
+
+
+
+                                                <div class="col-6">
+                                                    <label class="input_text">儲存影像</label>
+                                                    <div class="switch">
+                                                        <label>
+                                                            Disable
+                                                            <input type="checkbox">
+                                                            <span class="lever"></span>
+                                                            Enable
+                                                        </label>
                                                     </div>
-                                                    <div class="input-field col s6">
-                                                        <select>
-                                                            <option value="1">a → b</option>
+                                                </div>
+
+
+                                                <div class="col-6">
+                                                    <div class="form-group">
+                                                        <label for="carchoose">車流方向</label>
+                                                        <select class="form-control" id="carchoose">
+                                                            <option value="1" selected>a → b</option>
                                                             <option value="2">b → a</option>
                                                         </select>
-                                                        <label class="input_text">車流方向</label>
                                                     </div>
-
-                                                    <div class="input-field col s12">
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="input-field">
                                                         <input placeholder="描述" id="discribe" type="text"
                                                             class="validate">
                                                         <label for="discribe" class="input_text">描述</label>
                                                     </div>
-                                                    <div class="input-field col s12">
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="input-field">
                                                         <input id="times" type="number" class="validate">
                                                         <label for="times" class="input_text">間隔</label>
                                                     </div>
-
                                                 </div>
 
+
+
                                             </div>
 
                                         </div>
-                                        <div class="center">
-                                            <button class="waves-effect waves-dark btn red  previous-step">上一步</button>
 
-                                            <button class="waves-effect waves-dark btn next-step cyan"
-                                                data-validator="validateStepOne">下一步</button>
+                                    </div>
+                                    <ul class="list-inline pull-right">
+                                        <li><button type="button" class="btn btn-default prev-step">Previous</button>
+                                        </li>
+                                        <li><button type="button" class="btn btn-primary btn-info-full next-step">Save
+                                                and continue</button></li>
+                                    </ul>
+                                </div>
+                                <div class="tab-pane" role="tabpanel" id="complete">
+                                    <h3>Complete</h3>
+                                    <div class="row">
+                                        <div class="input-field col-6">
+                                            <img src="images/ivs.png" width="100%">
+                                        </div>
+                                        <div class="input-field col-6">
+                                            <h5><b>確認設定</b></h5>
+                                            <p class="cyan-text">
+                                                偵測範圍功能：車流負載
+                                            </p>
+                                            <p class="cyan-text">車種選擇 ：腳踏車，摩托車，汽車
+                                            </p>
+                                            <p class="cyan-text">是否儲存影像：是
+                                            </p>
+                                            <p class="cyan-text">
+                                                車流方向 ：Ａ→Ｂ
+                                            </p>
+                                            <p class="cyan-text"> 描述 ：往北方向
+                                            </p>
+                                            <p class="cyan-text"> 間隔 ：60</p>
                                         </div>
                                     </div>
-                                </li>
-                                <li class="step">
-                                    <div class="step-title waves-effect waves-dark">Step 4</div>
-                                    <div class="step-content">
-                                        <div class="row">
-                                            <div class="input-field col s6">
-                                                <img src="images/ivs.png" width="100%">
-                                            </div>
-                                            <div class="input-field col s6">
-                                                <h5><b>確認設定</b></h5>
-                                                <p class="cyan-text">
-                                                    偵測範圍功能：車流負載
-                                                </p>
-                                                <p class="cyan-text">車種選擇 ：腳踏車，摩托車，汽車
-                                                </p>
-                                                <p class="cyan-text">是否儲存影像：是
-                                                </p>
-                                                <p class="cyan-text">
-                                                    車流方向 ：Ａ→Ｂ
-                                                </p>
-                                                <p class="cyan-text"> 描述 ：往北方向
-                                                </p>
-                                                <p class="cyan-text"> 間隔 ：60</p>
-                                            </div>
-                                        </div>
-                                        <div class="center">
-                                            <button class="waves-effect waves-dark btn red  previous-step">上一步</button>
-
-                                            <button class="waves-effect waves-dark btn next-step cyan"
-                                                data-validator="validateStepOne" >儲存</button>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
                         </form>
 
                     </div>
-                    <div class="col s1"></div>
                 </div>
             </div>
-
-
         </div>
-
     </section>
+
+
     <!-- Footer -->
     <footer class="section cyan white-text center">
         <div class="container">
@@ -332,29 +417,62 @@
         </div>
     </footer>
 
-    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/materialize.min.js"></script>
-    <script type="text/javascript" src="js/stepper.js"></script>
-    <script type="text/javascript" src="js/all.js"></script>
+
+    <!-- select2 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+
+    <!-- select2-bootstrap4-theme -->
     <script type="text/javascript">
-
         $(document).ready(function () {
-            $('.sidenav').sidenav();
-            $('.collapsible').collapsible();
-            $('.tabs').tabs();
-            $('select').formSelect();
-             $('.stepper').activateStepper();
+            //Initialize tooltips
+            $('.nav-tabs > li a[title]').tooltip();
+
+            //Wizard
+            $('a[data-toggle="tab"]').on('show.bs.tab', function (e) {
+
+                var $target = $(e.target);
+
+                if ($target.parent().hasClass('disabled')) {
+                    return false;
+                }
+            });
+
+            $(".next-step").click(function (e) {
+
+                var $active = $('.wizard .nav-tabs li.active');
+                $active.next().removeClass('disabled');
+                nextTab($active);
+
+            });
+            $(".prev-step").click(function (e) {
+
+                var $active = $('.wizard .nav-tabs li.active');
+                prevTab($active);
+
+            });
         });
 
-        $(".dropdown-trigger").dropdown({
-            inDuration: 300,
-            outDuration: 225,
-            constrain_width: false, // Does not change width of dropdown to that of the activator
-            hover: true, // Activate on hover
-            gutter: 0, // Spacing from edge
-            belowOrigin: false, // Displays dropdown below the button
-            alignment: 'left',// Displays dropdown with edge aligned to the left of button
+        function nextTab(elem) {
+            $(elem).next().find('a[data-toggle="tab"]').click();
+        }
+        function prevTab(elem) {
+            $(elem).prev().find('a[data-toggle="tab"]').click();
+        }
+        $(function () {
+            $('select').each(function () {
+                $(this).select2({
+                    theme: 'bootstrap4',
+                    width: 'style',
+                    placeholder: $(this).attr('placeholder'),
+                    allowClear: Boolean($(this).data('allow-clear')),
+                });
+            });
         });
+
+
     </script>
 
 </body>

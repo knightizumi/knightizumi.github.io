@@ -332,3 +332,10 @@ form.textarea_form textarea{
 form.textarea_form {
     padding-bottom: 20px;
 }
+
+.select2-selection {
+    height:40px;
+}
+.select2-search__field{
+    
+}

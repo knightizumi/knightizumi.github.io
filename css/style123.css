@@ -287,3 +287,48 @@ form.traffic_analysis{
 .position-btn{
     color: #fff;
 }
+
+.textarea_form,
+.tab_area{
+    margin-top: 30px;
+}
+.save_btn{
+    padding: 15px;
+
+}
+.server_title{
+    text-align: right;
+    padding: 10px;
+}
+legend p{
+    font-size: 15px;
+}
+
+#ipaddress,
+#Subnet_mask,
+#Default_gateway,
+#DNS_server{
+    height:auto;
+    margin: 0;
+    border:1px solid #000;
+}
+
+input#ipaddress:read-only,
+input#Subnet_mask:read-only,
+input#Default_gateway:read-only,
+input#DNS_server:read-only{
+    height:auto;
+    margin: 0;
+    border:1px solid #000;
+    background-color: #dbd5d5;
+    cursor: not-allowed;
+}
+
+form.textarea_form textarea{
+    min-height: 350px;
+    
+}
+
+form.textarea_form {
+    padding-bottom: 20px;
+}

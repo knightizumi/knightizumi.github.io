@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ivs</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+        integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link type="text/css" rel="stylesheet" href="css/all.css" />
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC:400,700|Work+Sans:300,400,700" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="fonts/icomoon/style.css"> -->
+    <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+    <!-- <link rel="stylesheet" href="css/jquery-ui.css'"> -->
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mediaelement@4.2.7/build/mediaelementplayer.min.css">
+    <!-- <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css"> -->
+    <link rel="stylesheet" href="css/aos.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link type="text/css" rel="stylesheet" href="css/style123.css" />
+
+
+</head>
+
+<body>
+
+    <!-- content -->
+    <section class="content">
+        <div class="container">
+            <h3 class="center"><b>系統設定</b></h3>
+            <div class="row">
+                <div class="col-2">
+                    <ul class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                        <li class="active"><a data-toggle="tab" href="#device_position">設備位址</a></li>
+                        <li><a data-toggle="tab" href="#date_setting">日期設定</a></li>
+                        <li><a data-toggle="tab" href="#device_introduce">設備簡介</a></li>
+                        <li><a data-toggle="tab" href="#lan">網路</a></li>
+                        <li><a data-toggle="tab" href="#port">Port對應表</a></li>
+                        <li><a data-toggle="tab" href="#language">語言</a></li>
+                    </ul>
+                </div>
+                <div class="col-10">
+                    <div class="tab-content" id="v-pills-tabContent">
+                        <div id="device_position" class="tab-pane fade in active">
+                            <h5><span class="title cyan-text">設備位址</span></h5>
+                            <div class="row tab_area">
+                                <div class="col-8">
+                                    <img src="images/ivs4.png" width="100%">
+                                </div>
+                                <div class="col-4" style="display: flex; flex-direction: column;">
+                                    <form class="location"
+                                        style="flex: 1; justify-content: center;align-items: center;">
+                                        <div class="input-field">
+                                            <input id="Latitude" type="text" class="validate">
+                                            <label for="Latitude">Latitude</label>
+                                        </div>
+                                        <div class="input-field">
+                                            <input id="Longitude" type="text" class="validate">
+                                            <label for="Longitude">Longitude</label>
+                                        </div>
+                                    </form>
+                                    <div class="row" style="padding-right: 15px; padding-left: 15px;">
+                                        <div class="col-8"></div>
+                                        <button class="waves-effect waves-dark btn cyan col-4"
+                                            data-validator="validateStepOne">儲存</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="date_setting" class="tab-pane fade">
+                            <h5><span class="title cyan-text">日期設定</span></h5>
+                            <div class="row tab_area">
+                                <div class="col-6">
+                                    <div class="card">
+                                        <div class="card-title black center">
+                                            <span class="white-text">自動設定時間</span>
+                                        </div>
+                                        <div class="card-content">
+                                            <form>
+                                                <label class="demo_checkbox">
+                                                    <input type="checkbox" class="filled-in" checked="checked" />
+                                                    <span>是否啟動NTP伺服器</span>
+                                                </label>
+                                                <div class="row">
+                                                    <span class="col-3" style="margin: auto 0;">慣用NTP伺服器</span>
+                                                    <div class="input-field col-9">
+                                                        <input id="ntp_server" type="text" class="validate">
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="card">
+                                        <div class="card-title black center">
+                                            <span class="white-text">手動設定時間</span>
+                                        </div>
+                                        <div class="card-content">
+                                            <div class="row">
+                                                <span class="col-3" style="margin: auto 0;">時間設定</span>
+                                                <div class="input-field col-9">
+                                                    <input id="ntp_server" type="text" class="validate" disabled>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row save_btn">
+                                <div class="col-10"></div>
+                                <button class="waves-effect waves-dark btn cyan col-2"
+                                    data-validator="validateStepOne">儲存</button>
+                            </div>
+                        </div>
+                        <div id="device_introduce" class="tab-pane fade">
+                            <h5><span class="title cyan-text">設備簡介</span></h5>
+                            <form accept-charset="UTF-8" action="" method="POST" class="textarea_form">
+                                <textarea class="form-control" id="text" name="text" maxlength="1000"
+                                    placeholder="Type in your message" rows="5"></textarea>
+                                <span class="pull-right label label-default" id="count_message"></span>
+                            </form>
+                            <div class="row save_btn">
+                                <div class="col-10"></div>
+                                <button class="waves-effect waves-dark btn cyan col-2"
+                                    data-validator="validateStepOne">儲存</button>
+                            </div>
+                        </div>
+
+                        <div id="lan" class="tab-pane fade">
+                            <h5><span class="title cyan-text">網路</span></h5>
+                            <div class="row tab_area">
+                                <div class="col-12">
+                                    <fieldset>
+                                        <legend>
+                                            <p>
+                                                <input id="auto_ip" name="ip" value="auto_ip" type="radio" checked />
+                                                <label for="auto_ip">自動取得IP</label>
+                                            </p>
+                                            <p>
+                                                <input id="use_ip" name="ip" value="use_ip" type="radio" />
+                                                <label for="use_ip">使用下列的IP</label>
+                                            </p>
+
+                                        </legend>
+                                        <div id="auto_ipdiv">
+                                            <form class="row">
+                                                <div class="col-6">
+                                                    <div class="row">
+                                                        <div class="col-12">
+                                                            <div class="form-group row">
+                                                                <label for="ipaddress"
+                                                                    class="col-sm-4 col-form-label">IP位址</label>
+                                                                <div class="col-sm-8">
+                                                                    <input type="text" id="ipaddress" readonly />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12">
+                                                            <div class="form-group row">
+                                                                <label for="Subnet_mask"
+                                                                    class="col-sm-4 col-form-label">子網路遮罩</label>
+                                                                <div class="col-sm-8">
+                                                                    <input type="text" id="Subnet_mask" readonly />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12">
+                                                            <div class="form-group row">
+                                                                <label for="Default_gateway"
+                                                                    class="col-sm-4 col-form-label">預設閘道</label>
+                                                                <div class="col-sm-8">
+                                                                    <input type="text" id="Default_gateway" readonly />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-6">
+                                                    <div class="row">
+                                                        <div class="col-12">
+                                                            <div class="form-group row">
+                                                                <label for="DNS_server"
+                                                                    class="col-sm-3 col-form-label">DNS伺服器設定</label>
+                                                                <div class="col-sm-9">
+                                                                    <input type="text" id="DNS_server" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12"></div>
+                                                    </div>
+                                                </div>
+                                                
+                                            </form>
+                                        </div>
+
+                                        <div id="use_ipdiv">
+                                            <form class="row">
+                                                <div class="col-6">
+                                                    <div class="row">
+                                                        <div class="col-12">
+                                                            <div class="form-group row">
+                                                                <label for="ipaddress"
+                                                                    class="col-sm-4 col-form-label">IP位址</label>
+                                                                <div class="col-sm-8">
+                                                                    <input type="text" id="ipaddress"/>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12">
+                                                            <div class="form-group row">
+                                                                <label for="Subnet_mask"
+                                                                    class="col-sm-4 col-form-label">子網路遮罩</label>
+                                                                <div class="col-sm-8">
+                                                                    <input type="text" id="Subnet_mask" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12">
+                                                            <div class="form-group row">
+                                                                <label for="Default_gateway"
+                                                                    class="col-sm-4 col-form-label">預設閘道</label>
+                                                                <div class="col-sm-8">
+                                                                    <input type="text" id="Default_gateway" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-6">
+                                                    <div class="row">
+                                                        <div class="col-12">
+                                                            <div class="form-group row">
+                                                                <label for="DNS_server"
+                                                                    class="col-sm-3 col-form-label">DNS伺服器設定</label>
+                                                                <div class="col-sm-9">
+                                                                    <input type="text" id="DNS_server" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12"></div>
+                                                    </div>
+                                                </div>
+                                                
+                                            </form>
+                                        </div>
+                                    </fieldset>
+                                </div>
+                                <div class="col-12">
+                                    <div class="row save_btn">
+                                        <div class="col-10"></div>
+                                        <button class="waves-effect waves-dark btn cyan col-2"
+                                            data-validator="validateStepOne">儲存</button>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <div id="port" class="tab-pane fade">
+                            <h5><span class="title cyan-text">Port對應表</span></h5>
+
+                            <div class="row tab_area">
+                                <div class="col-4">
+                                    <div class="card">
+                                        <div class="server_title">
+                                            <i class="fas fa-times red-text"></i>
+                                        </div>
+                                        <div style="margin: auto 12px ;">
+                                            <p>外部網路介面：eth0</p>
+                                            <p>外部網路埠號:5048</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="card ">
+                                        <div class="server_title">
+                                            <i class="fas fa-times red-text"></i>
+                                        </div>
+                                        <div style="margin: auto 12px ;">
+                                            <p>外部網路介面：eth0</p>
+                                            <p>外部網路埠號:5048</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="card">
+                                        <div class="server_title">
+                                            <i class="fas fa-times red-text"></i>
+                                        </div>
+                                        <div style="margin: auto 12px ;">
+                                            <p>外部網路介面：eth0</p>
+                                            <p>外部網路埠號:5048</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="language" class="tab-pane fade">
+                            <h5><span class="title cyan-text">語言</span></h5>
+                            <!-- <select class="form-control" id="lang_option">
+                                <option value="en">en</option>
+                                <option value="zh_Hant_TW">zh_Hant_TW</option>
+                                <option value="ja_JP">ja_JP</option>
+                            </select> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Footer -->
+    <footer class="section cyan white-text center">
+        <div class="container">
+            <div class="row">
+                <div class="col s12 m12">
+                    <p> © 2020 AIMobile</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+    <script type="text/javascript" src="js/stepper.js"></script>
+    <script type="text/javascript" src="js/all.js"></script>
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            $('.sidenav').sidenav();
+            $('.collapsible').collapsible();
+            $('.tabs').tabs();
+            $('select').formSelect();
+        });
+        
+        var text_max = 1000;
+        $('#count_message').html('0 / ' + text_max);
+
+        $('#text').keyup(function () {
+            var text_length = $('#text').val().length;
+            var text_remaining = text_max - text_length;
+
+            $('#count_message').html(text_length + ' / ' + text_max);
+        });
+
+        $(document).ready(function () {
+            $("#auto_ipdiv").show();
+            $("#use_ipdiv").hide();
+        });
+        $(function () {
+            $("input[name='ip']").change(function () {
+                if ($('input:radio[name=ip]:checked').val() == "auto_ip") {
+                    $("#auto_ipdiv").show();
+                    $("#use_ipdiv").hide();
+                } else {
+                    $("#auto_ipdiv").hide();
+                    $("#use_ipdiv").show();
+                }
+            });
+        });
+
+    </script>
+
+</body>
+
+
+</html>

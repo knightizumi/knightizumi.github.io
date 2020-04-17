@@ -1,0 +1,446 @@
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>{{ name|safe }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+        integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link type="text/css" rel="stylesheet" href="css/all.css" />
+    <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="css/jquery-ui.css'"> -->
+    <link rel="stylesheet" href="css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/aos.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+    <!-- select2 -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+
+    <!-- select2-bootstrap4-theme -->
+    <link href="https://raw.githack.com/ttskch/select2-bootstrap4-theme/master/dist/select2-bootstrap4.css"
+        rel="stylesheet"> <!-- for live demo page -->
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/styles.css">
+
+    <style>
+        .canvas-wrapper {
+            position: relative;
+        }
+
+        .canvas {
+            top: 0;
+            left: 60px;
+            position: absolute;
+        }
+
+        .wizard {
+            background: #fff;
+        }
+
+        .wizard .nav-tabs {
+            position: relative;
+            margin: 10px auto;
+            margin-bottom: 0;
+            border-bottom-color: #e0e0e0;
+        }
+
+        .wizard>div.wizard-inner {
+            position: relative;
+        }
+
+        .connecting-line {
+            height: 2px;
+            background: #e0e0e0;
+            position: absolute;
+            width: 75%;
+            margin: 0 auto;
+            left: 0;
+            right: 0;
+            top: 50%;
+            z-index: 1;
+        }
+
+        .wizard .nav-tabs>li.active>a,
+        .wizard .nav-tabs>li.active>a:hover,
+        .wizard .nav-tabs>li.active>a:focus {
+            color: #555555;
+            cursor: default;
+            border: 0;
+            border-bottom-color: transparent;
+        }
+
+        span.round-tab {
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            display: inline-block;
+            border-radius: 100px;
+            background: #fff;
+            border: 2px solid #e0e0e0;
+            z-index: 2;
+            position: absolute;
+            left: 0;
+            text-align: center;
+            font-size: 25px;
+        }
+
+        span.round-tab i {
+            color: #555555;
+        }
+
+        .wizard li.active span.round-tab {
+            background: #fff;
+            border: 2px solid #5bc0de;
+
+        }
+
+        .wizard li.active span.round-tab i {
+            color: #5bc0de;
+        }
+
+        span.round-tab:hover {
+            color: #333;
+            border: 2px solid #333;
+        }
+
+        .wizard .nav-tabs>li {
+            width: 25%;
+        }
+
+        .wizard li:after {
+            content: " ";
+            position: absolute;
+            left: 47%;
+            opacity: 0;
+            margin: 0 auto;
+            bottom: 0px;
+            border: 5px solid transparent;
+            border-bottom-color: #5bc0de;
+            transition: 0.1s ease-in-out;
+        }
+
+        .wizard li.active:after {
+            content: " ";
+            position: absolute;
+            left: 47%;
+            opacity: 1;
+            margin: 0 auto;
+            bottom: 0px;
+            border: 10px solid transparent;
+            border-bottom-color: #5bc0de;
+        }
+
+        .wizard .nav-tabs>li a {
+            width: 40px;
+            height: 40px;
+            margin: 20px auto;
+            border-radius: 100%;
+            padding: 0;
+        }
+
+        .wizard .nav-tabs>li a:hover {
+            background: transparent;
+        }
+
+        .wizard .tab-pane {
+            position: relative;
+            padding-top: 20px;
+        }
+
+        .wizard h3 {
+            margin-top: 0;
+        }
+
+        @media(max-width : 585px) {
+
+            .wizard {
+                width: 90%;
+                height: auto !important;
+            }
+
+            span.round-tab {
+                font-size: 16px;
+                width: 50px;
+                height: 50px;
+                line-height: 50px;
+            }
+
+            .wizard .nav-tabs>li a {
+                width: 50px;
+                height: 50px;
+                line-height: 50px;
+            }
+
+            .wizard li.active:after {
+                content: " ";
+                position: absolute;
+                left: 35%;
+            }
+        }
+    </style>
+
+</head>
+<script type="text/javascript">
+    var settings = JSON.parse('{{ mon_setting|tojson|safe}}');
+    var cur_mon_settings = JSON.parse('{{cur_mon_settings|tojson|safe}}');
+    {% set settings = mon_setting.get(mon_setting.get('cur_sel')) %}
+    {% set mon_settings = cur_mon_settings %}
+    var cur_sel = settings.cur_sel;
+    var camera_rgn = {};
+    var width_ratio = 1.000;
+    var height_ratio = 1.000;
+    var getRatio = false;
+    var new_w = 640;
+    var new_h = 360;
+    var ivs_service = false;
+
+</script>
+<body>
+    <!-- content -->
+    <section class="content">
+        <div class="container">
+            <h1 class="header center"><b>監控區域設定</b></h1>
+            <div class="tab-content">
+                <div id="localcamera1" class="tab-pane fade in active">
+                    <div class="col-md-12 wizard">
+                        <h2 class="title" id="title">新增監控區域</h2 >
+                        <div class="wizard-inner">
+                            <div class="connecting-line"></div>
+                            <ul class="nav nav-tabs" role="tablist" id="questType">
+
+                                <li role="presentation" class="disabled">
+                                    <a href="#step1" data-toggle="tab" aria-controls="step1" role="tab" title="Step 1">
+                                        <span class="round-tab">
+                                            1
+                                        </span>
+                                    </a>
+                                </li>
+
+                                <li role="presentation" class="disabled">
+                                    <a href="#step2" data-toggle="tab" aria-controls="step2" role="tab" title="Step 2">
+                                        <span class="round-tab">
+                                            2
+                                        </span>
+                                    </a>
+                                </li>
+                                <li role="presentation" class="active">
+                                    <a href="#step3" data-toggle="tab" aria-controls="step3" role="tab" title="Step 3">
+                                        <span class="round-tab">
+                                            3
+                                        </span>
+                                    </a>
+                                </li>
+
+                                <li role="presentation" class="disabled">
+                                    <a href="#complete" data-toggle="tab" aria-controls="complete" role="tab"
+                                        title="complete">
+                                        <span class="round-tab">
+                                            4
+                                        </span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <form role="form">
+                            <div class="tab-content">
+                                <div class="tab-pane" role="tabpanel" id="step1">
+                                    <div class="input-field">
+                                        <input id="name" name="name" type="text" class="validate required">
+                                        <label for="name" class="input_text">名稱</label>
+                                    </div>
+                                    <div class="row">
+                                        <div class="input-field col-md-8 canvas-wrapper">
+                                            <canvas id="canvas2" class="canvas"></canvas>
+                                            <canvas id="canvas" stype="background:rgba(255,255,255,0);"
+                                                class="canvas"></canvas>
+                                        </div>
+                                        <div class="input-field col-md-4">
+                                            <div class="col-md-12">
+                                                <label for="rgn_poly_coords">偵測範圍</label>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div id="poly_coords">
+                                                    <p><i id="poly_coords_add"
+                                                            class="material-icons center add">add_box</i></p>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <a id="clear"
+                                                    class="waves-effect waves-light btn-large right red white-text">clean
+                                                    all</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <ul class="list-inline pull-right">
+                                        <li><button type="button" class="btn btn-primary next-step">continue</button></li>
+                                    </ul>
+                                </div>
+                                <div class="tab-pane" role="tabpanel" id="step2">
+
+                                    <div class="form-group">
+                                        <label for="rgn_type">偵測範圍功能</label>
+                                        <select class="form-control" id="rgn_type" onChange="Getrgntype(this.value);">
+                                            <option value="" disabled selected>請選擇</option>
+                                            {% for type in input_template["rgn_configs"].keys() %}
+                                            <option value="{{type}}">{{_(type)}}</option>
+                                            {% endfor %}
+                                        </select>
+                                    </div>
+
+                                    <ul class="list-inline pull-right">
+                                        <li><button type="button" class="btn btn-default prev-step">Previous</button>
+                                        </li>
+                                        <li><button type="button" class="btn btn-primary next-step">continue</button></li>
+                                    </ul>
+                                </div>
+                                <div class="tab-pane active" role="tabpanel" id="step3">
+                                    <h3 class="center cyan-text"><b>偵測設定：</b><b id="rgn_type_choice"></b></h3>
+                                    <div class="row">
+                                        <div class="input-field col-12 col-lg-8 canvas-wrapper">
+                                            <canvas id="canvas3" class="canvas"></canvas>
+                                            <canvas id="canvas4" class="canvas"></canvas>
+                                        </div>
+                                        <div class="input-field col-12 col-lg-4 ">
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <div class="form-group">
+                                                        <label>車種選擇</label>
+                                                        <select multiple data-placeholder="請選擇" data-allow-clear="1" id="multselect">
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="input-field">
+                                                        <input id="times" type="number" class="validate">
+                                                        <label for="times" class="input_text">threshold</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="input-field">
+                                                        <input id="discribe" type="text" class="validate">
+                                                        <label for="discribe" class="input_text">描述</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <ul class="list-inline pull-right">
+                                        <li><button type="button" class="btn btn-default prev-step">Previous</button>
+                                        </li>
+                                        <li><button type="button" class="btn btn-primary next-step">continue</button></li>
+                                    </ul>
+                                </div>
+                                <div class="tab-pane" role="tabpanel" id="complete">
+                                    <h3 class="rgn_complete"></h3>
+                                    <div class="row">
+                                        <div class="input-field col-8 canvas-wrapper">
+                                            <canvas id="canvas5" class="canvas"></canvas>
+                                        </div>
+                                        <div class="input-field col-4">
+                                            <h3 class="rgn_complete"><b>確認設定</b></h3>
+                                            <div id="rgn_check">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <ul class="list-inline pull-right">
+                                        <li><button type="button" class="btn btn-default prev-step" id="rgn_complete_left">Previous</button>
+                                        </li>
+                                        <li><button type="button" class="btn btn-primary next-step" id="rgn_complete_right">Save</button></li>
+                                    </ul>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer class="section cyan white-text center">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-12">
+                    <p> © 2020 AIMobile</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename = 'js/canvas.js') }}"></script>
+    <script src="{{ url_for('static', filename = 'js/canvas2.js') }}"></script>
+
+    <script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+
+    <!-- select2 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+
+    <!-- select2-bootstrap4-theme -->
+    <script type="text/javascript">
+    $(".select2-search,.select2-search--dropdown").remove();
+    
+        $(document).ready(function () {
+            //Initialize tooltips
+            $('.nav-tabs > li a[title]').tooltip();
+
+            //Wizard
+            $('a[data-toggle="tab"]').on('show.bs.tab', function (e) {
+
+                var $target = $(e.target);
+
+                if ($target.parent().hasClass('disabled')) {
+                    return false;
+                }
+            });
+
+            $(".next-step").click(function (e) {
+
+                var $active = $('.wizard .nav-tabs li.active');
+                $active.next().removeClass('disabled');
+                nextTab($active);
+
+            });
+            $(".prev-step").click(function (e) {
+
+                var $active = $('.wizard .nav-tabs li.active');
+                prevTab($active);
+
+            });
+        });
+
+        function nextTab(elem) {
+            $(elem).next().find('a[data-toggle="tab"]').click();
+        }
+        function prevTab(elem) {
+            $(elem).prev().find('a[data-toggle="tab"]').click();
+        }
+        $(function () {
+            $('select').each(function () {
+                $("#multselect").select2({
+                    theme: 'bootstrap4',
+                    width: 'style',
+                    placeholder: $(this).attr('placeholder'),
+                    allowClear: Boolean($(this).data('allow-clear')),
+                });
+            });
+        });
+
+
+    </script>
+</body>
+
+
+</html>

@@ -35,51 +35,62 @@ ul:not(.browser-default)>li {
   list-style-type: none;
 }
 
-.btn-cyan{
+.btn-cyan {
   background-color: #00bcd4;
   color: #fff;
 }
-p.item_content input:-moz-read-only { 
-  color: rgba(0,0,0,0.42);
-  border-bottom: 1px dotted rgba(0,0,0,0.42); 
+
+p.item_content input:-moz-read-only {
+  color: rgba(0, 0, 0, 0.42);
+  border-bottom: 1px dotted rgba(0, 0, 0, 0.42);
   cursor: not-allowed;
 }
-p.item_content input:read-only { 
-  color: rgba(0,0,0,0.42);
-  border-bottom: 1px dotted rgba(0,0,0,0.42);
+
+p.item_content input:read-only {
+  color: rgba(0, 0, 0, 0.42);
+  border-bottom: 1px dotted rgba(0, 0, 0, 0.42);
   cursor: not-allowed;
 }
-.enable{
-  color:#02AF6E;
+
+.enable {
+  color: #02AF6E;
 }
-.disable{
-  color:#FF4E4E;
+
+.disable {
+  color: #FF4E4E;
 }
-.region_list{
+
+.region_list {
   list-style: none;
   text-align: center;
-  width:100%;
+  width: 100%;
 }
-.region_list li{
+
+.region_list li {
   padding: 10px;
 }
-.region_list li.active{
+
+.region_list li.active {
   background-color: #00bcd4;
   border-radius: 4px;
   width: 100%;
 }
-.region_list li.active a{
- color: #fff;
+
+.region_list li.active a {
+  color: #fff;
 }
-.poly_btn{
+
+.poly_btn {
   margin: 0 5px 5px 0;
-  width:30%;
+  width: 30%;
 }
-#poly_coords{
+
+#poly_coords {
   max-height: 360px;
   overflow-y: auto;
   margin-bottom: 20px;
 }
+
 /*style-color*/
 .cyan {
   background-color: #00bcd4 !important;
@@ -155,6 +166,7 @@ h5 a,
 h6 a {
   font-weight: inherit;
 }
+
 /* 
 h1 {
   font-size: 4.2rem;
@@ -2586,6 +2598,7 @@ a.brand-logo {
 ul.navbar {
   padding-top: 30px;
 }
+
 /*content*/
 
 section.content {
@@ -2830,7 +2843,8 @@ input#DNS_server:read-only {
 form.textarea_form textarea {
   min-height: 350px;
 }
-input:read-only{
+
+input:read-only {
   cursor: not-allowed;
 }
 
@@ -2851,13 +2865,29 @@ form.textarea_form {
 }
 
 .navbar-collapse.collapse,
-.navbar  {
+.navbar {
   padding: 0;
 }
+
 .header {
   padding: 20px;
 }
 
-select#rgn_type{
+select#rgn_type {
   height: 47px;
+}
+
+.mapping {
+  padding: 10px 5px;
+  border: #e0e0e0 1px solid;
+  border-radius: 5px;
+}
+.mapping > span{
+  margin-right: 1.5rem;
+}
+.mapping_add{
+  text-align: right;
+  margin: auto 0px;
+  font-size: 30px;
+  color: #00bcd4;
 }

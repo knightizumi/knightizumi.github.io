@@ -201,6 +201,7 @@
     var ivs_service = false;
 
 </script>
+
 <body>
     <!-- content -->
     <section class="content">
@@ -209,7 +210,7 @@
             <div class="tab-content">
                 <div id="localcamera1" class="tab-pane fade in active">
                     <div class="col-md-12 wizard">
-                        <h2 class="title" id="title">新增監控區域</h2 >
+                        <h2 class="title" id="title">新增監控區域</h2>
                         <div class="wizard-inner">
                             <div class="connecting-line"></div>
                             <ul class="nav nav-tabs" role="tablist" id="questType">
@@ -279,7 +280,8 @@
                                         </div>
                                     </div>
                                     <ul class="list-inline pull-right">
-                                        <li><button type="button" class="btn btn-primary next-step">continue</button></li>
+                                        <li><button type="button" class="btn btn-primary next-step">continue</button>
+                                        </li>
                                     </ul>
                                 </div>
                                 <div class="tab-pane" role="tabpanel" id="step2">
@@ -297,7 +299,8 @@
                                     <ul class="list-inline pull-right">
                                         <li><button type="button" class="btn btn-default prev-step">Previous</button>
                                         </li>
-                                        <li><button type="button" class="btn btn-primary next-step">continue</button></li>
+                                        <li><button type="button" class="btn btn-primary next-step">continue</button>
+                                        </li>
                                     </ul>
                                 </div>
                                 <div class="tab-pane active" role="tabpanel" id="step3">
@@ -312,17 +315,35 @@
                                                 <div class="col-12">
                                                     <label class="input_text">偵測線設定</label>
                                                     <div id="borderline_coords">
-                                                        <p><i id="borderline_coords_add" class="material-icons center add">add_box</i></p>
+                                                        <p><i id="borderline_coords_add"
+                                                                class="material-icons center add">add_box</i></p>
                                                     </div>
                                                 </div>
                                                 <div class="col-12">
                                                     <div class="form-group">
                                                         <label>車種選擇</label>
-                                                        <select multiple data-placeholder="請選擇" data-allow-clear="1" id="multselect">
+                                                        <select multiple data-placeholder="請選擇" data-allow-clear="1"
+                                                            id="multselect">
                                                         </select>
                                                     </div>
                                                 </div>
-                                                <div class="col-12 col-lg-6">
+                                                <div class="col-12 col-md-4">
+                                                    <div class="switch">
+                                                        <label>
+                                                            車牌辨識
+                                                            <input type="checkbox" name="lp_cam_idx">
+                                                            <span class="lever"></span>
+                                                        </label>
+                                                        <label>
+                                                            儲存影像
+                                                            <input type="checkbox" name="save_photo">
+                                                            <span class="lever"></span>
+                                                        </label>
+
+                                                    </div>
+                                                </div>
+                                               
+                                                <div class="col-12 col-md-4">
                                                     <div class="form-group">
                                                         <label for="carchoose">車流方向</label>
                                                         <select class="form-control" id="carchoose" name="carchoose">
@@ -330,35 +351,14 @@
                                                             <option value="false">b → a</option>
                                                         </select>
                                                     </div>
-                                                </div> 
-                                                <div class="col-12 col-lg-6">
-                                                    <div class="form-group">
-                                                        <label for="save_photo">儲存照片</label>
-                                                        <select class="form-control" id="save_photo" name="save_photo">
-                                                            <option value="true" selected>a → b</option>
-                                                            <option value="false">b → a</option>
-                                                        </select>
-                                                    </div>
-                                                </div> 
-                                                <div class="col-12 col-lg-4">
-                                                    <div class="input-field">
-                                                        <input id="times" type="number" class="validate">
-                                                        <label for="times" class="input_text">間隔</label>
-                                                    </div>
                                                 </div>
-                                                <div class="col-12 col-lg-4">
+                                                <div class="col-12 col-md-4">
                                                     <div class="input-field">
                                                         <input id="initial_count" type="number" class="validate">
-                                                        <label for="initial_count" class="input_text">initial_count</label>
+                                                        <label for="initial_count"
+                                                            class="input_text">initial_count</label>
                                                     </div>
                                                 </div>
-                                                <div class="col-12 col-lg-4">
-                                                    <div class="input-field">
-                                                        <input id="license_plate" type="text" class="validate">
-                                                        <label for="license_plate" class="input_text">license_plate</label>
-                                                    </div>
-                                                </div>                                     
-                                               
                                                 <div class="col-12">
                                                     <div class="input-field">
                                                         <input id="discribe" type="text" class="validate">
@@ -366,14 +366,15 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            
+
                                         </div>
 
                                     </div>
                                     <ul class="list-inline pull-right">
                                         <li><button type="button" class="btn btn-default prev-step">Previous</button>
                                         </li>
-                                        <li><button type="button" class="btn btn-primary next-step">continue</button></li>
+                                        <li><button type="button" class="btn btn-primary next-step">continue</button>
+                                        </li>
                                     </ul>
                                 </div>
                                 <div class="tab-pane" role="tabpanel" id="complete">
@@ -389,9 +390,11 @@
                                         </div>
                                     </div>
                                     <ul class="list-inline pull-right">
-                                        <li><button type="button" class="btn btn-default prev-step" id="rgn_complete_left">Previous</button>
+                                        <li><button type="button" class="btn btn-default prev-step"
+                                                id="rgn_complete_left">Previous</button>
                                         </li>
-                                        <li><button type="button" class="btn btn-primary next-step" id="rgn_complete_right">Save</button></li>
+                                        <li><button type="button" class="btn btn-primary next-step"
+                                                id="rgn_complete_right">Save</button></li>
                                     </ul>
                                 </div>
                                 <div class="clearfix"></div>
@@ -428,8 +431,8 @@
 
     <!-- select2-bootstrap4-theme -->
     <script type="text/javascript">
-    $(".select2-search,.select2-search--dropdown").remove();
-    
+        $(".select2-search,.select2-search--dropdown").remove();
+
         $(document).ready(function () {
             //Initialize tooltips
             $('.nav-tabs > li a[title]').tooltip();
